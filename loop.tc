@@ -1,0 +1,13 @@
+inc
+right
+loop
+5
+inc
+endloop
+out
+left
+out
+loop
+7
+out
+endloop

@@ -1,0 +1,12 @@
+loop
+4
+inc
+endloop
+right
+loop
+144
+dec
+endloop
+out
+left
+out
