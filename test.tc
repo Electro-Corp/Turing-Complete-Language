@@ -1,7 +1,5 @@
-inc
-inc
 loop
 4
-dec
-endloop
+inc
 out
+endloop

@@ -1,4 +1,4 @@
-# Turing Complete Language 
+# Turing Complete Language (with IDE)
  - Can move pointer
  - Can add or substract value
  - can loop 
@@ -7,6 +7,10 @@
 
 ## Compile
 `python3 main.py file`
+
+## IDE
+`python3 edit.py`
+
 ## Syntax:
 - `inc` increment value at pointer
 - `dec` decrment value at pointer
