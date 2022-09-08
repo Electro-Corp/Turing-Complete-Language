@@ -4,6 +4,7 @@
  - can loop 
  - can do i/o
 <br>
+
 ## Compile
 `python3 main.py file`
 ## Syntax:
@@ -15,6 +16,7 @@
 - `input` ask for input and store at location
 - `loop` loop
 <br>
+
 ### Loop Example:
 ```
 loop // define loop
