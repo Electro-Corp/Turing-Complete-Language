@@ -13,7 +13,10 @@ complete = {
     "out": "blue",
     "inout": "purple",
     "loop": "orange",
-    "endloop": "blue"
+    "endloop": "blue",
+    "define": "green",
+    "set" : "orange",
+    "push" : "red"
 }
 cpp = {
     "if": "blue",
