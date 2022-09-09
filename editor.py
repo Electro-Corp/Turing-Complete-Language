@@ -15,8 +15,10 @@ complete = {
     "loop": "orange",
     "endloop": "blue",
     "define": "green",
-    "set" : "orange",
-    "push" : "red"
+    "set": "orange",
+    "push": "red",
+    "currentpoint": "purple",
+    "goto": "orange"
 }
 cpp = {
     "if": "blue",
@@ -80,6 +82,9 @@ class TextEditor:
                            width=30,
                            yscrollcommand=self.scrollbar.set)
         self.box.configure(font='Arial')
+        self.box.bind("<KeyPress>",
+                      lambda dummy: self.syntaxHighlight('Python'))
+
         for key in complete:
             self.box.tag_configure(key,
                                    background="white",
