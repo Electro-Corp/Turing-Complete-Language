@@ -58,7 +58,10 @@ for i in range(len(lines)):
 
             else:
                 if (name == "currentpoint"):
-                    memory[pos] = int(varvalue[varname.index(value)])
+                    if (value in varname):
+                        memory[pos] = int(varvalue[varname.index(value)])
+                    else:
+                        memory[pos] = int(value)
                 else:
                     print(name + " not found")
         else:
@@ -125,8 +128,11 @@ for i in range(len(lines)):
 
                         else:
                             if (name == "currentpoint"):
-                                memory[pos] = int(
-                                    varvalue[varname.index(value)])
+                                if (value in varname):
+                                    memory[pos] = int(
+                                        varvalue[varname.index(value)])
+                                else:
+                                    memory[pos] = int(value)
                             else:
                                 print(name + " not found")
                     else:
