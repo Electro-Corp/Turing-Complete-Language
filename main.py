@@ -56,6 +56,11 @@ for i in range(len(lines)):
         if (var[1].strip("\n") in varname):
             
             print(varvalue[varname.index(name)])
+    elif (lines[i][:4] == "goto"):
+        loc = lines[i][5]
+        pos = int(loc);
+        memory[pos]
+        print("Went to: " + loc)
 
     elif ("loop" in lines[i] and not "endloop" in lines[i]):
       i = i + 1
@@ -83,5 +88,10 @@ for i in range(len(lines)):
                   pos -= 1
               else:
                   print("Out of range! Ignored.")
+          elif (commandstorun[d][:4] == "goto"):
+              loc = commandstorun[d][5:8]
+              pos = int(loc);
+              memory[pos]
+              print("Went to: " + loc)
           
       i += len(commandstorun)
