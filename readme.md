@@ -18,6 +18,7 @@
 - `left` move pointer left
 - `out` output value at pointer location
 - `input` ask for input and store at location
+- `goto` takes an input of a number and moves the pointer to that location
 - `define` add variable
 - `set` set var to something
 - `push` print variable
@@ -38,4 +39,9 @@ endloop
 define vartest
 set vartest 5
 push vartest
+```
+
+## Goto Example
+```
+goto 4 // Moves the pointer to location 4
 ```
