@@ -18,6 +18,9 @@
 - `left` move pointer left
 - `out` output value at pointer location
 - `input` ask for input and store at location
+- `define` add variable
+- `set` set var to something
+- `push` print variable
 - `loop` loop
 <br>
 
@@ -27,4 +30,12 @@ loop // define loop
 5 // how many times to run looop
 ... commands to run
 endloop
+```
+<br>
+
+### Variable Example
+```
+define vartest
+set vartest 5
+push vartest
 ```
