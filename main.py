@@ -10,6 +10,9 @@ import os  # for file parsing
 import sys  # for command line arguments
 
 memory = [0] * 60000
+varname = [0] * 2400
+varvalue = [0] * 2400
+varpos = 0
 pos = 0
 filename = sys.argv[1]
 try:
@@ -35,6 +38,25 @@ for i in range(len(lines)):
             pos -= 1
         else:
             print("Out of range! Ignored.")
+    elif ("define" in lines[i]):
+        vars = lines[i].split(' ')
+        name = vars[1]
+        varname[varpos] = name.strip("\n")
+        varpos+=1
+    elif ("set" in lines[i]):
+        data = lines[i].split(' ')
+        name = data[1]
+        value = data[2].strip( "\n" )
+        if name in varname:
+            varvalue[varname.index(name)] = value
+        else:
+            print(name +" not found")
+    elif ("push" in lines[i]):
+        var = lines[i].split(' ')
+        if (var[1].strip("\n") in varname):
+            
+            print(varvalue[varname.index(name)])
+
     elif ("loop" in lines[i] and not "endloop" in lines[i]):
       i = i + 1
       times = lines[i]
@@ -61,4 +83,5 @@ for i in range(len(lines)):
                   pos -= 1
               else:
                   print("Out of range! Ignored.")
+          
       i += len(commandstorun)
