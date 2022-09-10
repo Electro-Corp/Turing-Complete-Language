@@ -19,6 +19,7 @@ complete = {
     "push": "red",
     "currentpoint": "purple",
     "goto": "orange"
+    "if": "blue"
 }
 cpp = {
     "if": "blue",
