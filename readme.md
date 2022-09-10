@@ -54,6 +54,7 @@ define var1
 define var2
 set var1 3
 set var2 4
+
 if var1 == var2
 // Output will be false
 
