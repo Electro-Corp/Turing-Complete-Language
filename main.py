@@ -71,7 +71,7 @@ for i in range(len(lines)):
         if (var[1].strip("\n") in varname):
 
             print(varvalue[varname.index(name)])
-    elif ("goto" in lines):
+    elif ("goto" in lines[i]):
         loc = lines[i].split(' ')[1]
         if (loc != "currentpoint"):
             if (loc in varname):
@@ -82,6 +82,48 @@ for i in range(len(lines)):
             pos = memory[pos]
         memory[pos]
         print("Went to: " + loc)
+    elif ("if" in lines[i]):
+        loc = lines[i].split(' ')
+        print(loc)
+        if (loc[1] in varname):
+            if (loc[2] == "=="):
+                if (loc[3] in varname):
+                    if (loc[1] == loc[3]):
+                        print("True")
+                    else:
+                        print("False")
+            elif (loc[2] == "!="):
+                if (loc[3] in varname):
+                    if (loc[1] == loc[3]):
+                        print("True")
+                    else:
+                        print("False")
+            elif (loc[2] == ">="):
+                if (loc[3] in varname):
+                    if (loc[1] >= loc[3]):
+                        print("True")
+                    else:
+                        print("False")
+            elif (loc[2] == "<="):
+                if (loc[3] in varname):
+                    if (loc[1] <= loc[3]):
+                        print("True")
+                    else:
+                        print("False")
+            elif (loc[2] == ">"):
+                if (loc[3] in varname):
+                    if (loc[1] > loc[3]):
+                        print("True")
+                    else:
+                        print("False")
+            elif (loc[2] == "<"):
+                if (loc[3] in varname):
+                    if (loc[1] < loc[3]):
+                        print("True")
+                    else:
+                        print("False")
+            else:
+                print("Incorrect Syntax")
 
     elif ("loop" in lines[i] and not "endloop" in lines[i]):
         i = i + 1
@@ -153,5 +195,47 @@ for i in range(len(lines)):
                     else:
                         pos = int(memory[pos])
                     print("Went to: " + loc)
+                elif ("if" in commandstorun[d]):
+                    loc = commandstorun[d].split(' ')
+                    print(loc)
+                    if (loc[1] in varname):
+                        if (loc[2] == "=="):
+                            if (loc[3] in varname):
+                                if (loc[1] == loc[3]):
+                                    print("True")
+                                else:
+                                    print("False")
+                        elif (loc[2] == "!="):
+                            if (loc[3] in varname):
+                                if (loc[1] == loc[3]):
+                                    print("True")
+                                else:
+                                    print("False")
+                        elif (loc[2] == ">="):
+                            if (loc[3] in varname):
+                                if (loc[1] >= loc[3]):
+                                    print("True")
+                                else:
+                                    print("False")
+                        elif (loc[2] == "<="):
+                            if (loc[3] in varname):
+                                if (loc[1] <= loc[3]):
+                                    print("True")
+                                else:
+                                    print("False")
+                        elif (loc[2] == ">"):
+                            if (loc[3] in varname):
+                                if (loc[1] > loc[3]):
+                                    print("True")
+                                else:
+                                    print("False")
+                        elif (loc[2] == "<"):
+                            if (loc[3] in varname):
+                                if (loc[1] < loc[3]):
+                                    print("True")
+                                else:
+                                    print("False")
+                        else:
+                            print("Incorrect Syntax")
 
         i += len(commandstorun)
