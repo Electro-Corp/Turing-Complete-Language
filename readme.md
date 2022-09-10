@@ -24,6 +24,7 @@
 - `set` set var to something
 - `push` print variable
 - `loop` loop
+- `if` if
 <br>
 
 ### Loop Example:
@@ -42,7 +43,34 @@ set vartest 5
 push vartest
 ```
 
-## Goto Example
+### Goto Example
 ```
 goto 4 // Moves the pointer to location 4
+```
+
+### If Examples:
+## Currently If statements are broken
+```
+define var1
+define var2
+set var1 3
+set var2 4
+
+if var1 == var2
+// Output will be false
+
+if var1 != var2
+// Output will be True
+
+if var1 >= var2
+// Output will be false
+
+if var1 <= var2
+// Output will be true
+
+if var1 > var2
+// Output will be false
+
+if var1 < var2
+// Output will be true
 ```
