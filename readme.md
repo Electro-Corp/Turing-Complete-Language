@@ -66,7 +66,7 @@ set vartest 5
 push vartest
 ```
 
-## Goto Example
+### Goto Example
 ```
 goto 4 // Moves the pointer to location 4
 ```
