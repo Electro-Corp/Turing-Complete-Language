@@ -24,8 +24,32 @@
 - `set` set var to something
 - `push` print variable
 - `loop` loop
+- `if` if
 <br>
+### If Examples:
+```
+define var1
+define var2
+set var1 3
+set var2 4
+if var1 == var2
+// Output will be false
 
+if var1 1= var2
+// Output will be True
+
+if var1 >= var2
+// Output will be false
+
+if var1 <= var2
+// Output will be true
+
+if var1 > var2
+// Output will be false
+
+if var1 < var2
+// Output will be true
+```
 ### Loop Example:
 ```
 loop // define loop
