@@ -58,7 +58,7 @@ set var2 4
 if var1 == var2
 // Output will be false
 
-if var1 1= var2
+if var1 != var2
 // Output will be True
 
 if var1 >= var2
