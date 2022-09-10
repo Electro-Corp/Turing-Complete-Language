@@ -49,6 +49,7 @@ goto 4 // Moves the pointer to location 4
 ```
 
 ### If Examples:
+## Currently If statements are broken
 ```
 define var1
 define var2
