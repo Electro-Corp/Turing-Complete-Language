@@ -26,6 +26,28 @@
 - `loop` loop
 - `if` if
 <br>
+
+### Loop Example:
+```
+loop // define loop
+5 // how many times to run looop
+... commands to run
+endloop
+```
+<br>
+
+### Variable Example
+```
+define vartest
+set vartest 5
+push vartest
+```
+
+### Goto Example
+```
+goto 4 // Moves the pointer to location 4
+```
+
 ### If Examples:
 ```
 define var1
@@ -49,24 +71,4 @@ if var1 > var2
 
 if var1 < var2
 // Output will be true
-```
-### Loop Example:
-```
-loop // define loop
-5 // how many times to run looop
-... commands to run
-endloop
-```
-<br>
-
-### Variable Example
-```
-define vartest
-set vartest 5
-push vartest
-```
-
-### Goto Example
-```
-goto 4 // Moves the pointer to location 4
 ```
