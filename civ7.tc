@@ -1,0 +1,13 @@
+define titletext
+set titletext Civilization7
+push titletext
+define loadingtext
+set loadingtext Loading..
+push loadingtext
+loop
+100
+inc
+out
+endloop
+set loadingtext Finished
+push loadingtext

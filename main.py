@@ -7,7 +7,6 @@ Requirments:
  - can do i/o
 
 """
-import os  # for file parsing
 import sys  # for command line arguments
 
 memory = [0] * 60000
@@ -84,41 +83,48 @@ for i in range(len(lines)):
         print("Went to: " + loc)
     elif ("if" in lines[i]):
         loc = lines[i].split(' ')
-        print(loc)
+        #print(loc)
         if (loc[1] in varname):
             if (loc[2] == "=="):
                 if (loc[3] in varname):
-                    if (loc[1] == loc[3]):
+                    if varvalue[varname.index(
+                            loc[1])] == varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "!="):
-                if (loc[3] in varname):
-                    if (loc[1] == loc[3]):
+                loc3 = "".join(loc[3].split())
+                if (loc3 in varname):
+                    if varvalue[varname.index(
+                            loc[1])] == varvalue[varname.index(loc3)]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == ">="):
                 if (loc[3] in varname):
-                    if (loc[1] >= loc[3]):
+                    if varvalue[varname.index(
+                            loc[1])] == varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "<="):
                 if (loc[3] in varname):
-                    if (loc[1] <= loc[3]):
+                    if varvalue[varname.index(
+                            loc[1])] == varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == ">"):
                 if (loc[3] in varname):
-                    if (loc[1] > loc[3]):
+                    if varvalue[varname.index(
+                            loc[1])] == varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "<"):
                 if (loc[3] in varname):
-                    if (loc[1] < loc[3]):
+                    if varvalue[varname.index(
+                            loc[1])] == varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")

@@ -1,0 +1,10 @@
+[ DEMO SWAP PROGRAM]
+define x 
+define y
+set x 2
+set y 5
+set currentpoint x
+set x y
+set y currentpoint
+push y
+out  

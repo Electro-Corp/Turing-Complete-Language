@@ -18,7 +18,7 @@ complete = {
     "set": "orange",
     "push": "red",
     "currentpoint": "purple",
-    "goto": "orange"
+    "goto": "orange",
     "if": "blue"
 }
 cpp = {
