@@ -84,16 +84,19 @@ for i in range(len(lines)):
     elif ("if" in lines[i]):
         loc = lines[i].split(' ')
         #print(loc)
-        if (loc[1] in varname):
+        loc3 = "".join(loc[3].split())
+        loc1 = "".join(loc[1].split())
+        if (loc1 in varname):
             if (loc[2] == "=="):
-                if (loc[3] in varname):
-                    if varvalue[varname.index(
-                            loc[1])] == varvalue[varname.index(loc[3])]:
+                if (loc3 in varname):
+
+                    if varvalue[varname.index(loc1)] == varvalue[varname.index(
+                            loc3)]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "!="):
-                loc3 = "".join(loc[3].split())
+
                 if (loc3 in varname):
                     if varvalue[varname.index(
                             loc[1])] == varvalue[varname.index(loc3)]:
