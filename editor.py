@@ -112,31 +112,31 @@ class TextEditor:
         #file menu (lol)
 
         #code highlighting
-        codeMenu = Menu(menubar)
-        codeMenu.add_command(label="[TC] Refresh Syntax Highlighting ",
-                             command=lambda: self.syntaxHighlight('Python'))
-        menubar.add_cascade(label="Syntax", menu=codeMenu)
-        #basic text editor stuff
-        editMenu = Menu(menubar)
-        editMenu.add_command(label="Bold", command=lambda: self.bold())
-        menubar.add_cascade(label="Edit", menu=editMenu)
-        #bold
-        self.box.tag_config("bt", font=(self.currentfont, "12", "bold"))
+        # codeMenu = Menu(menubar)
+        # codeMenu.add_command(label="[TC] Refresh Syntax Highlighting ",
+        #                      command=lambda: self.syntaxHighlight('Python'))
+        # menubar.add_cascade(label="Syntax", menu=codeMenu)
+        # #basic text editor stuff
+        # editMenu = Menu(menubar)
+        # editMenu.add_command(label="Bold", command=lambda: self.bold())
+        # menubar.add_cascade(label="Edit", menu=editMenu)
+        # #bold
+        # self.box.tag_config("bt", font=(self.currentfont, "12", "bold"))
         #submeny of edit
-        fileMenu = Menu(menubar)
-        fileMenu.add_command(
-            label="Times New Roman",
-            command=lambda: self.changeFont('Times New Roman'))
-        fileMenu.add_command(label="Courier",
-                             command=lambda: self.changeFont('Courier'))
-        #Georgia
-        fileMenu.add_command(label="Arial",
-                             command=lambda: self.changeFont('Arial'))
+        # fileMenu = Menu(menubar)
+        # fileMenu.add_command(
+        #     label="Times New Roman",
+        #     command=lambda: self.changeFont('Times New Roman'))
+        # fileMenu.add_command(label="Courier",
+        #                      command=lambda: self.changeFont('Courier'))
+        # #Georgia
+        # fileMenu.add_command(label="Arial",
+        #                      command=lambda: self.changeFont('Arial'))
         #Platino Linotype
-        fileMenu.add_command(
-            label="Platino Linotype",
-            command=lambda: self.changeFont('Platino Linotype'))
-        editMenu.add_cascade(label="Font", menu=fileMenu)
+        # fileMenu.add_command(
+        #     label="Platino Linotype",
+        #     command=lambda: self.changeFont('Platino Linotype'))
+        # editMenu.add_cascade(label="Font", menu=fileMenu)
         #compile
         compileMenu = Menu(menubar)
         compileMenu.add_command(label="Compile",
@@ -289,7 +289,7 @@ class TextEditor:
         self.save()
         d = self.saveas.get("1.0", 'end-1c')
         o = os.popen('python3 main.py ' + d).read()
-        messagebox.showerror(title="Compile Output", message=o)
+        messagebox.showinfo(title="Compile Output", message=o)
 
     def terminal(self):
         e = tk.Tk()

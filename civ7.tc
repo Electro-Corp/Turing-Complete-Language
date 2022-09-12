@@ -1,13 +1,11 @@
 define titletext
 set titletext Civilization7
 push titletext
-define loadingtext
-set loadingtext Loading..
-push loadingtext
-loop
-100
-inc
+define murica
+set murica Murica`
+push murica
+set currentpoint 1984
 out
-endloop
-set loadingtext Finished
-push loadingtext
+define year
+set year TheYearIs1984
+push year

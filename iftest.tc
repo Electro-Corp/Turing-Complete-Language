@@ -3,6 +3,6 @@ define y
 set x 4
 set y 9
 if x == y
-if x > y
-if x < y
+if x >= y
+if x <= y
 if x != y
