@@ -2,7 +2,19 @@ define x
 define y
 set x 4
 set y 9
+define one
+define two
+define three
+define four
+set one Equals
+push one
 if x == y
-if x >= y
-if x <= y
+set two NotEquals
+push two
 if x != y
+set three GreaterThan
+push three
+if x > y
+set four LessThan
+push four
+if x < y

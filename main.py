@@ -90,13 +90,11 @@ for i in range(len(lines)):
             if (loc[2] == "=="):
                 if (loc3 in varname):
 
-                    if varvalue[varname.index(loc1)] == varvalue[varname.index(
-                            loc3)]:
+                    if varvalue[varname.index(loc1)] == varvalue[varname.index(loc3)]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "!="):
-
                 if (loc3 in varname):
                     if varvalue[varname.index(
                             loc[1])] != varvalue[varname.index(loc3)]:
