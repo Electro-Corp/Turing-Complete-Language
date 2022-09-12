@@ -1,0 +1,7 @@
+define z
+define y
+set z 44
+push z
+set y 444
+if z == y
+push y
