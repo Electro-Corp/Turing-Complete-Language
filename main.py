@@ -82,7 +82,7 @@ for i in range(len(lines)):
         memory[pos]
         print("Went to: " + loc)
     elif ("if" in lines[i]):
-        loc = lines[i-1].split(' ')
+        loc = lines[i].split(' ')
         #print(loc)
         loc3 = "".join(loc[3].split())
         loc1 = "".join(loc[1].split())
@@ -98,36 +98,34 @@ for i in range(len(lines)):
             elif (loc[2] == "!="):
 
                 if (loc3 in varname):
-                    if varvalue[varname.index(
-                            loc[1])] == varvalue[varname.index(loc3)]:
+                    if varvalue[varname.index(loc[1])] != varvalue[varname.index(loc3)]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == ">="):
                 if (loc[3] in varname):
-                    if varvalue[varname.index(
-                            loc[1])] == varvalue[varname.index(loc[3])]:
+                    if varvalue[varname.index(loc[1])] >= varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "<="):
                 if (loc[3] in varname):
                     if varvalue[varname.index(
-                            loc[1])] == varvalue[varname.index(loc[3])]:
+                            loc[1])] <= varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == ">"):
                 if (loc[3] in varname):
                     if varvalue[varname.index(
-                            loc[1])] == varvalue[varname.index(loc[3])]:
+                            loc[1])] > varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "<"):
                 if (loc[3] in varname):
                     if varvalue[varname.index(
-                            loc[1])] == varvalue[varname.index(loc[3])]:
+                            loc[1])] < varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
@@ -205,7 +203,7 @@ for i in range(len(lines)):
                         pos = int(memory[pos])
                     print("Went to: " + loc)
                 elif ("if" in commandstorun[d]):
-                    loc = commandstorun[d-1].split(' ')
+                    loc = commandstorun[d].split(' ')
                     print(loc)
                     if (loc[1] in varname):
                         if (loc[2] == "=="):
