@@ -98,34 +98,36 @@ for i in range(len(lines)):
             elif (loc[2] == "!="):
 
                 if (loc3 in varname):
-                    if varvalue[varname.index(loc[1])] != varvalue[varname.index(loc3)]:
+                    if varvalue[varname.index(
+                            loc[1])] != varvalue[varname.index(loc3)]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == ">="):
                 if (loc[3] in varname):
-                    if varvalue[varname.index(loc[1])] >= varvalue[varname.index(loc[3])]:
+                    if varvalue[varname.index(
+                            loc[1])] >= varvalue[varname.index(loc[3])]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "<="):
-                if (loc[3] in varname):
+                if (loc3 in varname):
                     if varvalue[varname.index(
-                            loc[1])] <= varvalue[varname.index(loc[3])]:
+                            loc[1])] <= varvalue[varname.index(loc3)]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == ">"):
-                if (loc[3] in varname):
+                if (loc3 in varname):
                     if varvalue[varname.index(
-                            loc[1])] > varvalue[varname.index(loc[3])]:
+                            loc[1])] > varvalue[varname.index(loc3)]:
                         print("True")
                     else:
                         print("False")
             elif (loc[2] == "<"):
-                if (loc[3] in varname):
+                if (loc3 in varname):
                     if varvalue[varname.index(
-                            loc[1])] < varvalue[varname.index(loc[3])]:
+                            loc[1])] < varvalue[varname.index(loc3)]:
                         print("True")
                     else:
                         print("False")

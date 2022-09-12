@@ -2,7 +2,7 @@ define titletext
 set titletext Civilization7
 push titletext
 define murica
-set murica Murica`
+set murica Murica
 push murica
 set currentpoint 1984
 out
