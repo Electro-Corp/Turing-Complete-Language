@@ -31,6 +31,8 @@ def parsecommands(commands):
     global functionargs
     global function1commands
     for i in range(len(commands)):
+        if (commands[i] == 0):
+            exit()
         if ("inc" in commands[i]):
             memory[pos] += 1
         elif ("dec" in commands[i]):
@@ -76,7 +78,6 @@ def parsecommands(commands):
         elif ("push" in commands[i]):
             var = commands[i].split(' ')
             if (var[1].strip("\n") in varname):
-
                 print(varvalue[varname.index(name)])
         elif ("goto" in commands[i]):
             loc = commands[i].split(' ')[1]
@@ -93,12 +94,10 @@ def parsecommands(commands):
             types = commands[i].split(' ')
             funcname = types[1]
             funcarg = types[2].strip(")")
-            funcarg = types[2].strip("(")
+            funcarg = funcarg.strip("(")
             function1name = funcname
-            realpos = 0
-            while (not "endfunc" in commands[i]):
-                function1commands[realpos] = commands[i]
-                realpos += 1
+            while ("endfunc" not in commands[i]):
+                function1commands.append(commands[i])
                 i += 1
         elif ("if" in commands[i]):
             loc = commands[i].split(' ')
@@ -163,6 +162,9 @@ def parsecommands(commands):
             while e < int(times) - 1:
                 parsecommands(commandstorun)
                 e += 1
+        else:
+            if (commands[i].strip("\n") == function1name):
+                parsecommands(function1commands)
 
 
 try:
@@ -172,5 +174,6 @@ except FileNotFoundError:
     print("File " + str(filename) + "not found!")
     exit()
 print("File found!")
-
+for e in range(len(lines)):
+    lines[e] = lines[e].strip("\n")
 parsecommands(lines)
