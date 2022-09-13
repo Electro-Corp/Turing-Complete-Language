@@ -17,6 +17,11 @@ def parsecommands (commands):
     varvalue = [0] * 2400
     varpos = 0
     pos = 0
+    # Function 1
+    function1commands = [0] * 300
+    function1name = []
+    functionargs = [0] * 5
+    #
     for i in range(len(commands)):
         if ("inc" in lines[i]):
             memory[pos] += 1
@@ -76,6 +81,17 @@ def parsecommands (commands):
                 pos = memory[pos]
             memory[pos]
             print("Went to: " + loc)
+        elif ("function" in lines[i]):
+           types = lines[i].split(' ')
+           funcname = types[1]
+           funcarg = types[2].strip(")")
+           funcarg = types[2].strip("(")
+           function1name = funcname
+           realpos = 0
+           while (not "endfunc" in lines[i]):
+               function1commands[realpos] = lines[i]
+               realpos+=1
+               i+=1
         elif ("if" in lines[i]):
             loc = lines[i].split(' ')
             #print(loc)
