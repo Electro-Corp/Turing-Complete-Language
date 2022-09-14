@@ -66,6 +66,8 @@ def parsecommands(commands):
 
                 else:
                     if (name == "currentpoint"):
+                        print(name + "Name") # var.tc returns currentpoint
+                        print(value + " Value") # var.tc returns based
                         if (value in varname):
                             memory[pos] = int(varvalue[varname.index(value)])
                         else:
@@ -77,7 +79,7 @@ def parsecommands(commands):
         elif ("push" in commands[i]):
             var = commands[i].split(' ')
             if (var[1].strip("\n") in varname):
-                print(varvalue[varname.index(name)])
+                print(varvalue[varname.index(name)]) # var.tc: error currentpoint is not in list
         elif ("goto" in commands[i]):
             loc = commands[i].split(' ')[1]
             if (loc != "currentpoint"):
@@ -99,6 +101,8 @@ def parsecommands(commands):
                 function1commands.append(commands[i])
                 i += 1
         elif ("if" in commands[i]):
+            print(f"Ran if statement")
+
             ifcommands = []
             istrue = False
             loc = commands[i].split(' ')
@@ -107,44 +111,37 @@ def parsecommands(commands):
             if (loc1 in varname):
                 if (loc[2] == "=="):
                     if (loc3 in varname):
-
-                        if varvalue[varname.index(loc1)] == varvalue[
-                                varname.index(loc3)]:
+                        if varvalue[varname.index(loc1)] == varvalue[varname.index(loc3)]:
                             istrue = True
                         else:
                             print("False")
                 elif (loc[2] == "!="):
                     if (loc3 in varname):
-                        if varvalue[varname.index(
-                                loc[1])] != varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(loc[1])] != varvalue[varname.index(loc3)]:
                             istrue = True
                         else:
                             print("False")
                 elif (loc[2] == ">="):
                     if (loc[3] in varname):
-                        if varvalue[varname.index(
-                                loc[1])] >= varvalue[varname.index(loc[3])]:
+                        if varvalue[varname.index(loc[1])] >= varvalue[varname.index(loc[3])]:
                             istrue = True
                         else:
                             print("False")
                 elif (loc[2] == "<="):
                     if (loc3 in varname):
-                        if varvalue[varname.index(
-                                loc[1])] <= varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(loc[1])] <= varvalue[varname.index(loc3)]:
                             istrue = True
                         else:
                             print("False")
                 elif (loc[2] == ">"):
                     if (loc3 in varname):
-                        if varvalue[varname.index(
-                                loc[1])] > varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(loc[1])] > varvalue[varname.index(loc3)]:
                             istrue = True
                         else:
                             print("False")
                 elif (loc[2] == "<"):
                     if (loc3 in varname):
-                        if varvalue[varname.index(
-                                loc[1])] < varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(loc[1])] < varvalue[varname.index(loc3)]:
                             istrue = True
                         else:
                             print("False")
@@ -154,7 +151,9 @@ def parsecommands(commands):
                     ifcommands.append(commands[i])
                     i += 1
                 if(istrue):
+                    print("END IF WORKING")
                     parsecommands(ifcommands)
+                print(f"Ran if statement with and output of {istrue}")
 
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             i = i + 1

@@ -1,8 +1,9 @@
+Name is currentpoint
+Value is based
+
+
 define based
-loop
-104
 goto based
 set based currentpoint
 set currentpoint based
-endloop
 push based
