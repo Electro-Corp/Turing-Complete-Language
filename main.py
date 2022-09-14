@@ -78,7 +78,7 @@ def parsecommands(commands):
         elif ("push" in commands[i]):
             var = commands[i].split(' ')
             if (var[1].strip("\n") in varname):
-                print(varvalue[varname.index(name)]) # var.tc: error currentpoint is not in list
+                print(varvalue[varname.index(name)])
         elif ("goto" in commands[i]):
             loc = commands[i].split(' ')[1]
             if (loc != "currentpoint"):
@@ -100,8 +100,11 @@ def parsecommands(commands):
                 function1commands.append(commands[i])
                 i += 1
         elif ("print" in commands[i]):
-            p = commands[i].split(' ', 1)
-            print(p[1])
+            out = commands[i].split(' ', 1)
+            if (out[1].strip("\n") in varname):
+                print(varvalue[varname.index(name)])
+            else:
+                print(out[1])
         elif ("if" in commands[i] and "endif" not in commands[i]):
             ifcommands = []
             istrue = False
