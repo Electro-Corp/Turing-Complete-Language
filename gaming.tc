@@ -1,0 +1,8 @@
+define x
+define y
+set x 4
+set y 3
+if x == y
+inc
+out
+endif
