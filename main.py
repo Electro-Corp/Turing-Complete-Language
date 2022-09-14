@@ -151,7 +151,6 @@ def parsecommands(commands):
         else:
             if (commands[i].strip("\n") == function1name):
                 parsecommands(function1commands)
-        print(f"Command: {commands[i]}")
 
 try:
     with open(str(filename), 'r') as d:
