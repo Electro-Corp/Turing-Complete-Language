@@ -100,6 +100,7 @@ def parsecommands(commands):
                 i += 1
         elif ("if" in commands[i]):
             ifcommands = []
+            istrue = False
             loc = commands[i].split(' ')
             loc3 = "".join(loc[3].split())
             loc1 = "".join(loc[1].split())
@@ -109,42 +110,42 @@ def parsecommands(commands):
 
                         if varvalue[varname.index(loc1)] == varvalue[
                                 varname.index(loc3)]:
-                            print("True")
+                            istrue = True
                         else:
                             print("False")
                 elif (loc[2] == "!="):
                     if (loc3 in varname):
                         if varvalue[varname.index(
                                 loc[1])] != varvalue[varname.index(loc3)]:
-                            print("True")
+                            istrue = True
                         else:
                             print("False")
                 elif (loc[2] == ">="):
                     if (loc[3] in varname):
                         if varvalue[varname.index(
                                 loc[1])] >= varvalue[varname.index(loc[3])]:
-                            print("True")
+                            istrue = True
                         else:
                             print("False")
                 elif (loc[2] == "<="):
                     if (loc3 in varname):
                         if varvalue[varname.index(
                                 loc[1])] <= varvalue[varname.index(loc3)]:
-                            print("True")
+                            istrue = True
                         else:
                             print("False")
                 elif (loc[2] == ">"):
                     if (loc3 in varname):
                         if varvalue[varname.index(
                                 loc[1])] > varvalue[varname.index(loc3)]:
-                            print("True")
+                            istrue = True
                         else:
                             print("False")
                 elif (loc[2] == "<"):
                     if (loc3 in varname):
                         if varvalue[varname.index(
                                 loc[1])] < varvalue[varname.index(loc3)]:
-                            print("True")
+                            istrue = True
                         else:
                             print("False")
                 else:
@@ -152,7 +153,8 @@ def parsecommands(commands):
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
-                parsecommands(ifcommands)
+                if(istrue):
+                    parsecommands(ifcommands)
 
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             i = i + 1
