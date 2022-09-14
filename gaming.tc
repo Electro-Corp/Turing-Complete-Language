@@ -1,10 +1,9 @@
 define x
 define y
 define success
-set success IUSEJBBFI
-push success
+set success success!!!
 set x 4
 set y 3
 if x == y
-push success
+print true yes
 endif
