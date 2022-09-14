@@ -1,18 +1,12 @@
-define x
+define yesno
+set yesno 0
+define text
+set text 1/0
+push text
+input
+set yesno currentpoint
 define y
-set x 4
-set y 9
-define one
-define two
-define three
-define four
-set one 1
-set two 2
-set three 3
-set four 4
-
-if x != y
-push two
+set y 1
+if yesno == y
+push yesno
 endif
-
-push three
