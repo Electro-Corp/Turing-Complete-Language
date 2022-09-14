@@ -1,10 +1,7 @@
 define x
 define y
-define success
-set success success!!!
 set x 4
 set y 3
 if x == y
-print x
-print true yes
+print if doesnt work
 endif
