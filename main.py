@@ -18,8 +18,7 @@ pos = 0
 function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
-#
-
+# if commands
 
 def parsecommands(commands):
     global memory
@@ -100,8 +99,8 @@ def parsecommands(commands):
                 function1commands.append(commands[i])
                 i += 1
         elif ("if" in commands[i]):
+            ifcommands = []
             loc = commands[i].split(' ')
-            #print(loc)
             loc3 = "".join(loc[3].split())
             loc1 = "".join(loc[1].split())
             if (loc1 in varname):
@@ -150,6 +149,10 @@ def parsecommands(commands):
                             print("False")
                 else:
                     print("Incorrect Syntax")
+                while ("endif" not in commands[i]):
+                    ifcommands.append(commands[i])
+                    i += 1
+                parsecommands(ifcommands)
 
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             i = i + 1
