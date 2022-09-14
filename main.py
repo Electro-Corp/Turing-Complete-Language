@@ -107,7 +107,7 @@ def parsecommands(commands):
             istrue = False
             loc = commands[i].split(' ')
             loc3 = "".join(loc[3].split()) #index out of range error
-            loc1 = "".join(loc[1].split())
+            loc1 = "".join(loc[1].split()) #probably will happen here to
             if (loc1 in varname):
                 if (loc[2] == "=="):
                     if (loc3 in varname):
