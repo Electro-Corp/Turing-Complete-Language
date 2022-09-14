@@ -100,7 +100,6 @@ def parsecommands(commands):
                 function1commands.append(commands[i])
                 i += 1
         elif ("if" in commands[i] and "endif" not in commands[i]):
-            print(f"Ran if statement")
             ifcommands = []
             istrue = False
             loc = commands[i].split(' ')
