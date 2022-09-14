@@ -19,7 +19,6 @@ function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
 # if commands
-
 def parsecommands(commands):
     global memory
     global varname
@@ -100,9 +99,8 @@ def parsecommands(commands):
             while ("endfunc" not in commands[i]):
                 function1commands.append(commands[i])
                 i += 1
-        elif ("if" in commands[i]):
+        elif ("if" in commands[i] and "endif" not in commands[i]):
             print(f"Ran if statement")
-
             ifcommands = []
             istrue = False
             loc = commands[i].split(' ')
@@ -147,6 +145,7 @@ def parsecommands(commands):
                             print("False")
                 else:
                     print("Incorrect Syntax")
+                i += 1
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
@@ -154,11 +153,11 @@ def parsecommands(commands):
                     print("END IF WORKING")
                     parsecommands(ifcommands)
                 print(f"Ran if statement with and output of {istrue}")
-
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
-            i = i + 1
-            times = commands[i]
+            bruh = commands[i].split(' ')
+            times = bruh[1].strip("\n")
             commandstorun = []
+            i += 1
             while "endloop" not in commands[i]:
                 commandstorun.append(commands[i])
                 i += 1
@@ -169,7 +168,7 @@ def parsecommands(commands):
         else:
             if (commands[i].strip("\n") == function1name):
                 parsecommands(function1commands)
-
+        print(f"Command: {commands[i]}")
 
 try:
     with open(str(filename), 'r') as d:
