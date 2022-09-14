@@ -65,6 +65,8 @@ def parsecommands(commands):
 
                 else:
                     if (name == "currentpoint"):
+                        print(name + "Name") # var.tc returns currentpoint
+                        print(value + " Value") # var.tc returns based
                         if (value in varname):
                             memory[pos] = int(varvalue[varname.index(value)])
                         else:
@@ -98,36 +100,49 @@ def parsecommands(commands):
                 function1commands.append(commands[i])
                 i += 1
         elif ("if" in commands[i] and "endif" not in commands[i]):
+            print(f"Ran if statement")
             ifcommands = []
             istrue = False
             loc = commands[i].split(' ')
-            loc3 = "".join(loc[3].split())
-            loc1 = "".join(loc[1].split())
+            loc3 = "".join(loc[3].split()) #index out of range error
+            loc1 = "".join(loc[1].split()) #probably will happen here to
             if (loc1 in varname):
                 if (loc[2] == "=="):
                     if (loc3 in varname):
                         if varvalue[varname.index(loc1)] == varvalue[varname.index(loc3)]:
                             istrue = True
+                        else:
+                            print("False")
                 elif (loc[2] == "!="):
                     if (loc3 in varname):
                         if varvalue[varname.index(loc[1])] != varvalue[varname.index(loc3)]:
                             istrue = True
+                        else:
+                            print("False")
                 elif (loc[2] == ">="):
                     if (loc[3] in varname):
                         if varvalue[varname.index(loc[1])] >= varvalue[varname.index(loc[3])]:
                             istrue = True
+                        else:
+                            print("False")
                 elif (loc[2] == "<="):
                     if (loc3 in varname):
                         if varvalue[varname.index(loc[1])] <= varvalue[varname.index(loc3)]:
                             istrue = True
+                        else:
+                            print("False")
                 elif (loc[2] == ">"):
                     if (loc3 in varname):
                         if varvalue[varname.index(loc[1])] > varvalue[varname.index(loc3)]:
                             istrue = True
+                        else:
+                            print("False")
                 elif (loc[2] == "<"):
                     if (loc3 in varname):
                         if varvalue[varname.index(loc[1])] < varvalue[varname.index(loc3)]:
                             istrue = True
+                        else:
+                            print("False")
                 else:
                     print("Incorrect Syntax")
                 i += 1
@@ -135,7 +150,9 @@ def parsecommands(commands):
                     ifcommands.append(commands[i])
                     i += 1
                 if(istrue):
+                    print("END IF WORKING")
                     parsecommands(ifcommands)
+                print(f"Ran if statement with and output of {istrue}")
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             bruh = commands[i].split(' ')
             times = bruh[1].strip("\n")
@@ -151,8 +168,6 @@ def parsecommands(commands):
         else:
             if (commands[i].strip("\n") == function1name):
                 parsecommands(function1commands)
-        print(f"Command: {commands[i]}")
-
 try:
     with open(str(filename), 'r') as d:
         lines = d.readlines()
@@ -162,4 +177,7 @@ except FileNotFoundError:
 print("File found!")
 for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
-parsecommands(lines)
+try:
+    parsecommands(lines)
+except:
+    print("Error.")
