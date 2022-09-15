@@ -29,8 +29,10 @@
 
 ### Loop Example:
 ```
-loop // define loop
-5 // how many times to run looop
+[ DEFINE LOOP ]
+loop 
+[ how many times to run looop ]
+5 
 ... commands to run
 endloop
 ```
