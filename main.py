@@ -8,6 +8,7 @@ Requirments:
 """
 import sys  # for command line arguments
 import random
+
 filename = sys.argv[1]
 memory = [0] * 60000
 varname = [0] * 2400
@@ -35,7 +36,8 @@ def parsecommands(commands):
         print(i)
         print()
         if (commands[i] == 0):
-            exit()
+            print("Weird error occuring..")
+            #exit()
         if ("inc" in commands[i]):
             memory[pos] += 1
         elif ("dec" in commands[i]):
@@ -62,8 +64,8 @@ def parsecommands(commands):
             value = data[2].strip("\n")
             if (value != "currentpoint"):
                 if name in varname:
-                    if(value == "random"):
-                      varvalue[varname.index(name)] = random.randint(0,100)
+                    if (value == "random"):
+                        varvalue[varname.index(name)] = random.randint(0, 100)
                     elif (value in varname):
                         varvalue[varname.index(name)] = varvalue[varname.index(
                             value)]
