@@ -7,7 +7,7 @@ Requirments:
  - can do i/o
 """
 import sys  # for command line arguments
-
+import random
 filename = sys.argv[1]
 memory = [0] * 60000
 varname = [0] * 2400
@@ -62,7 +62,9 @@ def parsecommands(commands):
             value = data[2].strip("\n")
             if (value != "currentpoint"):
                 if name in varname:
-                    if (value in varname):
+                    if(value == "random"):
+                      varvalue[varname.index(name)] = random.randint(0,100)
+                    elif (value in varname):
                         varvalue[varname.index(name)] = varvalue[varname.index(
                             value)]
                     else:
@@ -183,7 +185,7 @@ try:
 except FileNotFoundError:
     print("File " + str(filename) + "not found!")
     exit()
-print("File found!")
+print("File found! Running..")
 for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
 #try:
