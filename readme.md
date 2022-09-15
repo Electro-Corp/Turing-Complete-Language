@@ -1,5 +1,5 @@
 
-# JBBFI (with IDE) (Java But Better, Fuck It)
+# JBBFI (with IDE) (Java But Better, F*ck It)
  - Can move pointer
  - Can add or substract value
  - can loop 
