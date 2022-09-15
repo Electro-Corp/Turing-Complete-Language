@@ -18,6 +18,8 @@ pos = 0
 function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
+
+
 # if commands
 def parsecommands(commands):
     global memory
@@ -29,6 +31,9 @@ def parsecommands(commands):
     global functionargs
     global function1commands
     for i in range(len(commands)):
+        print("I is")
+        print(i)
+        print()
         if (commands[i] == 0):
             exit()
         if ("inc" in commands[i]):
@@ -65,8 +70,8 @@ def parsecommands(commands):
 
                 else:
                     if (name == "currentpoint"):
-                        print(name + "Name") # var.tc returns currentpoint
-                        print(value + " Value") # var.tc returns based
+                        print(name + "Name")
+                        print(value + " Value")
                         if (value in varname):
                             memory[pos] = int(varvalue[varname.index(value)])
                         else:
@@ -109,47 +114,56 @@ def parsecommands(commands):
             ifcommands = []
             istrue = False
             loc = commands[i].split(' ')
-            loc3 = "".join(loc[3].split()) 
-            loc1 = "".join(loc[1].split()) 
+            loc3 = "".join(loc[3].split())
+            loc1 = "".join(loc[1].split())
             if (loc1 in varname):
                 if (loc[2] == "=="):
                     if (loc3 in varname):
-                        if varvalue[varname.index(loc1)] == varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(loc1)] == varvalue[
+                                varname.index(loc3)]:
                             istrue = True
                 elif (loc[2] == "!="):
                     if (loc3 in varname):
-                        if varvalue[varname.index(loc[1])] != varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(
+                                loc[1])] != varvalue[varname.index(loc3)]:
                             istrue = True
                 elif (loc[2] == ">="):
                     if (loc[3] in varname):
-                        if varvalue[varname.index(loc[1])] >= varvalue[varname.index(loc[3])]:
+                        if varvalue[varname.index(
+                                loc[1])] >= varvalue[varname.index(loc[3])]:
                             istrue = True
 
                 elif (loc[2] == "<="):
                     if (loc3 in varname):
-                        if varvalue[varname.index(loc[1])] <= varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(
+                                loc[1])] <= varvalue[varname.index(loc3)]:
                             istrue = True
 
                 elif (loc[2] == ">"):
                     if (loc3 in varname):
-                        if varvalue[varname.index(loc[1])] > varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(
+                                loc[1])] > varvalue[varname.index(loc3)]:
                             istrue = True
                 elif (loc[2] == "<"):
                     if (loc3 in varname):
-                        if varvalue[varname.index(loc[1])] < varvalue[varname.index(loc3)]:
+                        if varvalue[varname.index(
+                                loc[1])] < varvalue[varname.index(loc3)]:
                             istrue = True
                 else:
                     print("Incorrect Syntax")
-                i += 1
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
-                if(istrue):
-                    parsecommands(ifcommands)
+                    print("Incremented i: ")
+                    print(i)
+                print("Found endif")
+                # if (istrue):
+                # parsecommands(ifcommands)
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             bruh = commands[i].split(' ')
             times = bruh[1].strip("\n")
             commandstorun = []
+            print("Incremented i")
             i += 1
             while "endloop" not in commands[i]:
                 commandstorun.append(commands[i])
@@ -161,6 +175,8 @@ def parsecommands(commands):
         else:
             if (commands[i].strip("\n") == function1name):
                 parsecommands(function1commands)
+
+
 try:
     with open(str(filename), 'r') as d:
         lines = d.readlines()
@@ -170,7 +186,7 @@ except FileNotFoundError:
 print("File found!")
 for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
-try:
-    parsecommands(lines)
-except:
-    print("Error.")
+#try:
+parsecommands(lines)
+#except:
+#   print("Error.")
