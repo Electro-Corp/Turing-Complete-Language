@@ -190,7 +190,7 @@ except FileNotFoundError:
 print("File found! Running..")
 for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
-#try:
+# try:
 parsecommands(lines)
-#except:
-#   print("Error.")
+# except:
+#    print("Error.")
