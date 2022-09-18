@@ -20,6 +20,19 @@ function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    WHITE = '\u001b[37m'
+bcolors = bcolors()
+
 # if commands
 def parsecommands(commands):
     global memory
@@ -32,9 +45,9 @@ def parsecommands(commands):
     global function1commands
     for i in range(len(commands)):
         print()
-        print("I is: ", end='')
+        print(f'{bcolors.WHITE} I is: ', end='')
         print(i, end=' command is: ')
-        print(f"{bcolors.OKGREEN}{commands[i]}", end=' command outputed: ')
+        print(f'{bcolors.OKGREEN} {commands[i]}', end=f'{bcolors.WHITE} command outputed: {bcolors.OKBLUE}')
         if (commands[i] == 0):
             print("Weird error occuring..")
             #exit()
@@ -194,13 +207,3 @@ parsecommands(lines)
 # except:
 #    print("Error.")
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
