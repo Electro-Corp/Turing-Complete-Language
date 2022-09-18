@@ -19,6 +19,7 @@ pos = 0
 function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
+DEBUG = False
 
 class bcolors:
     HEADER = '\033[95m'
@@ -44,12 +45,12 @@ def parsecommands(commands):
     global function1name
     global functionargs
     global function1commands
-    i=0
     for i in range(len(commands)):
-        print(f'{bcolors.WHITE}')
-        print(f'{bcolors.WHITE} I is: ', end='')
-        print(f'{bcolors.WARNING}{i}', end=f'{bcolors.WHITE} command is: ')
-        print(f'{bcolors.OKGREEN} {commands[i]}', end=f'{bcolors.WHITE} command outputed: {bcolors.OKBLUE}')
+        if (DEBUG):
+            print(f'{bcolors.WHITE}')
+            print(f'{bcolors.WHITE} I is: ', end='')
+            print(f'{bcolors.WARNING}{i}', end=f'{bcolors.WHITE} command is: ')
+            print(f'{bcolors.OKGREEN} {commands[i]}', end=f'{bcolors.WHITE} command outputed: {bcolors.OKBLUE}')
         if (commands[i] == 0):
             print("Weird error occuring..")
             #exit()
@@ -184,7 +185,7 @@ def parsecommands(commands):
             try:
                 times = bruh[1].strip("\n")
             except Exception as excep:
-                print(f"Incorrect syntax on line {i+1}")
+                print(f"Incorrect syntax on line {i+2}")
             commandstorun = []
             i += 1
             while "endloop" not in commands[i]:
