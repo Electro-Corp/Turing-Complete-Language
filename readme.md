@@ -35,6 +35,8 @@
 - `if` if
 <br>
 
+### Look at the wiki for better examples and documentation
+
 ### Loop Example:
 ```
 [ DEFINE LOOP, how many times to run loop]
