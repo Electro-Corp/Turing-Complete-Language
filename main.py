@@ -142,7 +142,10 @@ def parsecommands(commands):
             loc = commands[i].split(' ')
             loc3 = "".join(loc[3].split())
             loc1 = "".join(loc[1].split())
-            i+=1
+            i+=4
+            print('\ni should = ', end='')
+            print(i, end=' ')
+            print('right now.')
             if (loc1 in varname):
                 if (loc[2] == "=="):
                     if (loc3 in varname):
@@ -224,5 +227,4 @@ try:
     parsecommands(lines)
 except Exception as exc:
    print(f'Error: {bcolors.ERROR}' + exc, end = f'{bcolors.WHITE}\n')
-
 print(bcolors.WHITE)
