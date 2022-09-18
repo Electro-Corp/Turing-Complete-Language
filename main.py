@@ -143,9 +143,10 @@ def parsecommands(commands):
             loc3 = "".join(loc[3].split())
             loc1 = "".join(loc[1].split())
             i+=4
-            print('\ni should = ', end='')
-            print(i, end=' ')
-            print('right now.')
+            if(DEBUGIF):
+                print('\ni should = ', end='')
+                print(i, end=' ')
+                print('right now.')
             if (loc1 in varname):
                 if (loc[2] == "=="):
                     if (loc3 in varname):
