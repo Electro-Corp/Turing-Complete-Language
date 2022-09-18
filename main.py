@@ -46,7 +46,7 @@ def parsecommands(commands):
     global functionargs
     global function1commands
     if(DEBUG):
-        print(f'\n{bcolors.BOLD}{bcolors.UNDERLINE}PARSING COMMANDS')
+        print(f'\n{bcolors.OKBLUE}{bcolors.BOLD}{bcolors.UNDERLINE}PARSING COMMANDS')
         print(bcolors.ENDC)
         print()
         print()
