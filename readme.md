@@ -3,7 +3,8 @@
 
 ## Known Errors/Bugs
  - parsecommands ignoring changes to i made in "if" section
-
+ - addition of color broke editor output
+ 
 ## Changes to make
  - use 2d arrays to allow for more functions
 
