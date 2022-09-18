@@ -1,9 +1,0 @@
-Name is currentpoint
-Value is based
-
-
-define based
-goto based
-set based currentpoint
-set currentpoint based
-push based

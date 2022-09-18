@@ -44,6 +44,7 @@ def parsecommands(commands):
     global function1name
     global functionargs
     global function1commands
+    i=0
     for i in range(len(commands)):
         print(f'{bcolors.WHITE}')
         print(f'{bcolors.WHITE} I is: ', end='')
