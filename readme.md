@@ -2,7 +2,7 @@
 # JBBFI (with IDE) (Java But Better, F*ck It)
 
 ## Changes to make
- - use 2d arrays to allow for more funcitons
+ - use 2d arrays to allow for more functions
 
 ## Features
  - Can move pointer
