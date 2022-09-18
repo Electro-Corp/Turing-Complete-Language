@@ -35,7 +35,7 @@
 - `if` if
 <br>
 
-### Look at the wiki for better examples and documentation
+# Examples*
 
 ### Loop Example:
 ```
@@ -83,3 +83,5 @@ if var1 > var2
 if var1 < var2
 // Output will be true
 ```
+
+### *Look at the wiki for better examples and documentation
