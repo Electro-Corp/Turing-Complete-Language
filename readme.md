@@ -1,6 +1,9 @@
 
 # JBBFI (with IDE) (Java But Better, F*ck It)
 
+## Known Errors/Bugs
+ - parsecommands ignoring changes to i made in "if" section
+
 ## Changes to make
  - use 2d arrays to allow for more functions
 
