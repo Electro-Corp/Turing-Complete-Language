@@ -20,7 +20,6 @@ function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
 
-
 # if commands
 def parsecommands(commands):
     global memory
@@ -32,10 +31,10 @@ def parsecommands(commands):
     global functionargs
     global function1commands
     for i in range(len(commands)):
+        print()
         print("I is: ", end='')
         print(i, end=' command is: ')
-        print(commands[i], end=', command outputed: ')
-        print()
+        print(f"{bcolors.OKGREEN}{commands[i]}", end=' command outputed: ')
         if (commands[i] == 0):
             print("Weird error occuring..")
             #exit()
@@ -158,18 +157,16 @@ def parsecommands(commands):
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
-                    print("Incremented i: ", end='')
-                    print(i, end=', command was: ')
-                    print(commands[i])
-                print("Found endif")
+                    # print("Incremented i: ", end='')
+                    # print(i, end=', command was: ')
+                    # print(commands[i])
                 if (istrue):
-                    print("Is True")
+                    # print("Is True")
                     parsecommands(ifcommands)
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             bruh = commands[i].split(' ')
             times = bruh[1].strip("\n")
             commandstorun = []
-            print("Incremented i")
             i += 1
             while "endloop" not in commands[i]:
                 commandstorun.append(commands[i])
@@ -196,3 +193,14 @@ for e in range(len(lines)):
 parsecommands(lines)
 # except:
 #    print("Error.")
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
