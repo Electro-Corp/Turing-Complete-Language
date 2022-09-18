@@ -2,7 +2,7 @@ define x
 define y
 set x 4
 set y 3
-loop 2
+loop 
 if x == y
 print if doesnt work
 print why
