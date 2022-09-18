@@ -19,8 +19,8 @@ pos = 0
 function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
-DEBUG = False
-
+DEBUG = True
+DEBUGIF = False
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -45,6 +45,11 @@ def parsecommands(commands):
     global function1name
     global functionargs
     global function1commands
+    if(DEBUG):
+        print(f'\n{bcolors.BOLD}{bcolors.UNDERLINE}PARSING COMMANDS')
+        print(bcolors.ENDC)
+        print()
+        print()
     for i in range(len(commands)):
         if (DEBUG):
             print(f'{bcolors.WHITE}')
@@ -130,6 +135,8 @@ def parsecommands(commands):
             else:
                 print(out[1])
         elif ("if" in commands[i] and "endif" not in commands[i]):
+            if(DEBUGIF):
+                print(f'{bcolors.WARNING} \nif start', end=f'{bcolors.WHITE}\n')
             ifcommands = []
             istrue = False
             loc = commands[i].split(' ')
@@ -174,12 +181,17 @@ def parsecommands(commands):
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
-                    # print("Incremented i: ", end='')
-                    # print(i, end=', command was: ')
-                    # print(commands[i])
+                    if(DEBUGIF):             
+                        print("           Incremented i: ", end='')
+                        print(i, end=', command was: ')
+                        print(commands[i])
                 if (istrue):
-                    # print("Is True")
+                    if(DEBUGIF):
+                        print("Is True")
                     parsecommands(ifcommands)
+                if(DEBUGIF):
+                    print(f'{bcolors.WARNING} \nif end', end=f'{bcolors.WHITE}\n')
+
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             bruh = commands[i].split(' ')
             try:
