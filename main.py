@@ -32,8 +32,9 @@ def parsecommands(commands):
     global functionargs
     global function1commands
     for i in range(len(commands)):
-        print("I is")
-        print(i)
+        print("I is: ", end='')
+        print(i, end=' command is: ')
+        print(commands[i], end=', command outputed: ')
         print()
         if (commands[i] == 0):
             print("Weird error occuring..")
@@ -71,7 +72,6 @@ def parsecommands(commands):
                             value)]
                     else:
                         varvalue[varname.index(name)] = value
-
                 else:
                     if (name == "currentpoint"):
                         print(name + "Name")
@@ -158,11 +158,13 @@ def parsecommands(commands):
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
-                    print("Incremented i: ")
-                    print(i)
+                    print("Incremented i: ", end='')
+                    print(i, end=', command was: ')
+                    print(commands[i])
                 print("Found endif")
-                # if (istrue):
-                # parsecommands(ifcommands)
+                if (istrue):
+                    print("Is True")
+                    parsecommands(ifcommands)
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             bruh = commands[i].split(' ')
             times = bruh[1].strip("\n")
