@@ -31,6 +31,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     WHITE = '\u001b[37m'
+    ERROR = '\u001b[31m'
 bcolors = bcolors()
 
 # if commands
@@ -44,9 +45,9 @@ def parsecommands(commands):
     global functionargs
     global function1commands
     for i in range(len(commands)):
-        print()
+        print(f'{bcolors.WHITE}')
         print(f'{bcolors.WHITE} I is: ', end='')
-        print(i, end=' command is: ')
+        print(f'{bcolors.WARNING}{i}', end=f'{bcolors.WHITE} command is: ')
         print(f'{bcolors.OKGREEN} {commands[i]}', end=f'{bcolors.WHITE} command outputed: {bcolors.OKBLUE}')
         if (commands[i] == 0):
             print("Weird error occuring..")
@@ -132,6 +133,7 @@ def parsecommands(commands):
             loc = commands[i].split(' ')
             loc3 = "".join(loc[3].split())
             loc1 = "".join(loc[1].split())
+            i+=1
             if (loc1 in varname):
                 if (loc[2] == "=="):
                     if (loc3 in varname):
@@ -178,7 +180,10 @@ def parsecommands(commands):
                     parsecommands(ifcommands)
         elif ("loop" in commands[i] and not "endloop" in commands[i]):
             bruh = commands[i].split(' ')
-            times = bruh[1].strip("\n")
+            try:
+                times = bruh[1].strip("\n")
+            except Exception as excep:
+                print(f"Incorrect syntax on line {i+1}")
             commandstorun = []
             i += 1
             while "endloop" not in commands[i]:
@@ -192,7 +197,6 @@ def parsecommands(commands):
             if (commands[i].strip("\n") == function1name):
                 parsecommands(function1commands)
 
-
 try:
     with open(str(filename), 'r') as d:
         lines = d.readlines()
@@ -202,8 +206,9 @@ except FileNotFoundError:
 print("File found! Running..")
 for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
-# try:
-parsecommands(lines)
-# except:
-#    print("Error.")
+try:
+    parsecommands(lines)
+except Exception as exc:
+   print(f'Error: {bcolors.ERROR}' + exc, end = f'{bcolors.WHITE}\n')
 
+print(bcolors.WHITE)
