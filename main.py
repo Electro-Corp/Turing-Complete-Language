@@ -19,7 +19,8 @@ pos = 0
 function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
-DEBUG = True
+ifstatments = []
+DEBUG = False
 DEBUGIF = False
 class bcolors:
     HEADER = '\033[95m'
@@ -45,12 +46,14 @@ def parsecommands(commands):
     global function1name
     global functionargs
     global function1commands
+    global ifstatments
     if(DEBUG):
         print(f'\n{bcolors.OKBLUE}{bcolors.BOLD}{bcolors.UNDERLINE}PARSING COMMANDS')
         print(bcolors.ENDC)
         print()
         print()
     for i in range(len(commands)):
+
         if (DEBUG):
             print(f'{bcolors.WHITE}')
             print(f'{bcolors.WHITE} I is: ', end='')
@@ -59,7 +62,10 @@ def parsecommands(commands):
         if (commands[i] == 0):
             print("Weird error occuring..")
             #exit()
-        if ("inc" in commands[i]):
+        if(i in ifstatments):
+            pass
+            #print("Skipped.")
+        elif ("inc" in commands[i]):
             memory[pos] += 1
         elif ("dec" in commands[i]):
             memory[pos] -= 1
@@ -141,8 +147,7 @@ def parsecommands(commands):
             istrue = False
             loc = commands[i].split(' ')
             loc3 = "".join(loc[3].split())
-            loc1 = "".join(loc[1].split())
-            i+=4
+            loc1 = "".join(loc[1].split())  
             if(DEBUGIF):
                 print('\ni should = ', end='')
                 print(i, end=' ')
@@ -182,9 +187,11 @@ def parsecommands(commands):
                             istrue = True
                 else:
                     print("Incorrect Syntax")
+               
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
+                    ifstatments.append(i)
                     if(DEBUGIF):             
                         print("           Incremented i: ", end='')
                         print(i, end=', command was: ')
