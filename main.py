@@ -234,5 +234,5 @@ for e in range(len(lines)):
 try:
     parsecommands(lines)
 except Exception as exc:
-   print(f'Error: {bcolors.ERROR}' + exc, end = f'{bcolors.WHITE}\n')
+   print(f'Error: {bcolors.ERROR}' + str(exc), end = f'{bcolors.WHITE}\n')
 print(bcolors.WHITE)
