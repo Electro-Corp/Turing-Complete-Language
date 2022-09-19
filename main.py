@@ -19,7 +19,7 @@ pos = 0
 function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
-ifstatments = []
+#ifstatments = []
 DEBUG = False
 DEBUGIF = False
 class bcolors:
@@ -46,13 +46,14 @@ def parsecommands(commands):
     global function1name
     global functionargs
     global function1commands
-    global ifstatments
+    #global ifstatments
     if(DEBUG):
         print(f'\n{bcolors.OKBLUE}{bcolors.BOLD}{bcolors.UNDERLINE}PARSING COMMANDS')
         print(bcolors.ENDC)
         print()
         print()
-    for i in range(len(commands)):
+    i = 0
+    while i < (len(commands)):
 
         if (DEBUG):
             print(f'{bcolors.WHITE}')
@@ -62,10 +63,10 @@ def parsecommands(commands):
         if (commands[i] == 0):
             print("Weird error occuring..")
             #exit()
-        if(i in ifstatments):
-            pass
-            #print("Skipped.")
-        elif ("inc" in commands[i]):
+        #if(i in ifstatments):
+        #    pass
+        #    #print("Skipped.")
+        if ("inc" in commands[i]):
             memory[pos] += 1
         elif ("dec" in commands[i]):
             memory[pos] -= 1
@@ -84,6 +85,7 @@ def parsecommands(commands):
             vars = commands[i].split(' ')
             name = vars[1]
             varname[varpos] = name.strip("\n")
+         
             varpos += 1
         elif ("set" in commands[i]):
             data = commands[i].split(' ')
@@ -191,7 +193,6 @@ def parsecommands(commands):
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
-                    ifstatments.append(i)
                     if(DEBUGIF):             
                         print("           Incremented i: ", end='')
                         print(i, end=', command was: ')
@@ -234,5 +235,5 @@ for e in range(len(lines)):
 try:
     parsecommands(lines)
 except Exception as exc:
-   print(f'Error: {bcolors.ERROR}' + str(exc), end = f'{bcolors.WHITE}\n')
+   print(f'Error: {bcolors.ERROR}' + exc, end = f'{bcolors.WHITE}\n')
 print(bcolors.WHITE)
