@@ -26,7 +26,7 @@ DEBUG_LIST_ERROR = True
 def dumpmemory():
     with open("dump.log", "w") as w:
         w.write("[VARNAME]\n")
-        w.writelines(varname)
+        w.writelines(str(varname))
         w.write("\n[VARVALUE]\n")
         w.writelines(str(varvalue))
         w.write("\n[VARPOS]\n")
@@ -209,7 +209,7 @@ def parsecommands(commands):
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
-                    ifstatments.appned(i)
+                    ifstatments.append(i)
                     if(DEBUGIF):             
                         print("           Incremented i: ", end='')
                         print(i, end=', command was: ')
