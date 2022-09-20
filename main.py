@@ -51,6 +51,7 @@ bcolors = bcolors()
 
 # if commands
 def parsecommands(commands):
+    
     global memory
     global varname
     global varvalue
@@ -62,6 +63,7 @@ def parsecommands(commands):
     #global ifstatments
     if(DEBUG):
         print(f'\n{bcolors.OKBLUE}{bcolors.BOLD}{bcolors.UNDERLINE}PARSING COMMANDS')
+        print(f'\n{bcolors.OKBLUE}{bcolors.BOLD}{bcolors.UNDERLINE}LENGTH OF FILE IS {str(len(commands))}')
         print(bcolors.ENDC)
         print()
         print()
@@ -207,8 +209,8 @@ def parsecommands(commands):
                     print("Incorrect Syntax")
                
                 while ("endif" not in commands[i]):
-                    ifcommands.append(commands[i])
                     i += 1
+                    ifcommands.append(commands[i])
                     ifstatments.append(i)
                     if(DEBUGIF):             
                         print("           Incremented i: ", end='')
