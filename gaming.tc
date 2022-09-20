@@ -3,11 +3,10 @@ define y
 set x 4
 set y 4
 if x == y
-print if doesnt work
-print why
-inc 
-inc
-inc
-out
+print this should never run
 endif
 print Hey
+
+if x != y
+print if you see this it is good
+endif

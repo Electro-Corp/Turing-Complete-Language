@@ -4,10 +4,9 @@
 ## Known Errors/Bugs
  - parsecommands ignoring changes to i made in "if" section
  - addition of color broke editor output
- - define increments varpos until the program breaks
  
 ## Changes to make
- - use 2d arrays to allow for more functions
+ - use 2d arrays to allow for more functions/classes
 
 ## Features
  - Can move pointer
