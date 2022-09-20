@@ -26,7 +26,7 @@ DEBUG_LIST_ERROR = True
 def dumpmemory():
     with open("dump.log", "w") as w:
         w.write("[VARNAME]\n")
-        w.writelines(varname)
+        w.writelines(str(varname))
         w.write("\n[VARVALUE]\n")
         w.writelines(str(varvalue))
         w.write("\n[VARPOS]\n")
