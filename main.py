@@ -64,8 +64,7 @@ def parsecommands(commands):
         print()
         print()
     i = 0
-    while i < (len(commands)):
-
+    for i in range(len(commands)):
         if (DEBUG):
             print(f'{bcolors.WHITE}')
             print(f'{bcolors.WHITE} I is: ', end='')
