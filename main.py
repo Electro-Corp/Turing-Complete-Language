@@ -20,11 +20,19 @@ function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
 ifstatments = []
-DEBUG = False
-DEBUGIF = False
-DEBUG_LIST_ERROR = False
+DEBUG = True
+DEBUGIF = True
+DEBUG_LIST_ERROR = True
+def dumpmemory():
+    with open("dump.log", "w") as w:
+        w.write("[VARNAME]\n")
+        w.writelines(varname)
+        w.write("\n[VARVALUE]\n")
+        w.writelines(str(varvalue))
+        w.write("\n[VARPOS]\n")
+        w.write(str(varpos))
 # The define part of the command is gettings run so so so many times.
-# Like 2400 times
+# Like 2400 times (no way????)
 # If fix might be the source
 # It basically increments varpos indefinetly until it breaches the upper limit  
 class bcolors:
@@ -231,6 +239,7 @@ def parsecommands(commands):
         else:
             if (commands[i].strip("\n") == function1name):
                 parsecommands(function1commands)
+        i += 1
 
 try:
     with open(str(filename), 'r') as d:
@@ -241,8 +250,10 @@ except FileNotFoundError:
 print("File found! Running..")
 for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
-#try:
-parsecommands(lines)
-#except Exception as exc:
-   #print(f'Error: {bcolors.ERROR}{exc}', end = f'{bcolors.WHITE}\n')
-#print(bcolors.WHITE)
+try:
+    parsecommands(lines)
+except Exception as exc:
+   print(f'Error: {bcolors.ERROR}{exc}', end = f'{bcolors.WHITE}\n')
+   dumpmemory()
+
+print(bcolors.WHITE)
