@@ -31,10 +31,6 @@ def dumpmemory():
         w.writelines(str(varvalue))
         w.write("\n[VARPOS]\n")
         w.write(str(varpos))
-# The define part of the command is gettings run so so so many times.
-# Like 2400 times (no way????)
-# If fix might be the source
-# It basically increments varpos indefinetly until it breaches the upper limit  
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
