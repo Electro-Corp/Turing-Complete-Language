@@ -19,9 +19,14 @@ pos = 0
 function1commands = [0] * 300
 function1name = ""
 functionargs = [0] * 5
-#ifstatments = []
+ifstatments = []
 DEBUG = False
 DEBUGIF = False
+DEBUG_LIST_ERROR = False
+# The define part of the command is gettings run so so so many times.
+# Like 2400 times
+# If fix might be the source
+# It basically increments varpos indefinetly until it breaches the upper limit  
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -63,10 +68,10 @@ def parsecommands(commands):
         if (commands[i] == 0):
             print("Weird error occuring..")
             #exit()
-        #if(i in ifstatments):
-        #    pass
-        #    #print("Skipped.")
-        if ("inc" in commands[i]):
+        if(i in ifstatments):
+            pass
+            #print("Skipped.")
+        elif ("inc" in commands[i]):
             memory[pos] += 1
         elif ("dec" in commands[i]):
             memory[pos] -= 1
@@ -84,6 +89,9 @@ def parsecommands(commands):
         elif ("define" in commands[i]):
             vars = commands[i].split(' ')
             name = vars[1]
+            if(DEBUG_LIST_ERROR):
+                print(f'{bcolors.OKBLUE} varpos = {varpos}')
+                print(f'Length = {len(varname)}')
             varname[varpos] = name.strip("\n")
          
             varpos += 1
@@ -193,6 +201,7 @@ def parsecommands(commands):
                 while ("endif" not in commands[i]):
                     ifcommands.append(commands[i])
                     i += 1
+                    ifstatments.appned(i)
                     if(DEBUGIF):             
                         print("           Incremented i: ", end='')
                         print(i, end=', command was: ')
@@ -232,8 +241,8 @@ except FileNotFoundError:
 print("File found! Running..")
 for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
-try:
-    parsecommands(lines)
-except Exception as exc:
-   print(f'Error: {bcolors.ERROR}' + exc, end = f'{bcolors.WHITE}\n')
-print(bcolors.WHITE)
+#try:
+parsecommands(lines)
+#except Exception as exc:
+   #print(f'Error: {bcolors.ERROR}{exc}', end = f'{bcolors.WHITE}\n')
+#print(bcolors.WHITE)
