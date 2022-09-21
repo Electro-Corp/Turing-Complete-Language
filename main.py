@@ -2,7 +2,6 @@ from pickletools import uint4
 import sys  # for command line arguments
 import random
 from types import NoneType
-import numpy as np
 
 try:
     filename = sys.argv[1]
@@ -23,7 +22,6 @@ def parsecommands(commands):
         syntax = command[0]
         arguments = command[1:]
         print(arguments)
-        
 
 try:
     with open(str(filename), 'r') as d:
