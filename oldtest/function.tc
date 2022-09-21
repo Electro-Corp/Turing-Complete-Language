@@ -1,0 +1,6 @@
+function lol (x)
+define e
+set e functioncalled
+push e
+endfunc
+lol

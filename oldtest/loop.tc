@@ -1,0 +1,17 @@
+inc
+right
+out
+print expected 0
+loop 5
+inc
+endloop
+out
+print expected 5
+left
+out
+print expected 1
+loop 7
+inc
+endloop
+out
+print expected 8
