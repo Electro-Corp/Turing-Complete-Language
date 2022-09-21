@@ -2,7 +2,6 @@
 # JBBFI (with IDE) (Java But Better, F*ck It)
 
 ## Known Errors/Bugs
- - parsecommands ignoring changes to i made in "if" section
  - addition of color broke editor output
  
 ## Changes to make
