@@ -5,7 +5,10 @@ filename = sys.argv[1]
 
 # if commands
 def parsecommands(commands):
-    pass
+    i = 0
+    for i in range(len(commands)):
+        if("define" in commands[i]):
+            print("Define")
 try:
     with open(str(filename), 'r') as d:
         lines = d.readlines()
