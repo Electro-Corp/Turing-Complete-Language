@@ -9,8 +9,8 @@ def parsecommands(commands):
     for i in range(len(commands)):
         command = commands[i].split(' ')
         syntax = command[0]
-        val1 = command[1]
-        val2 = command[2]
+        arguments = command[:1]
+        print(arguments)
 
 try:
     with open(str(filename), 'r') as d:
