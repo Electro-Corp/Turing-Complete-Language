@@ -2,7 +2,6 @@
 # JBBFI (with IDE) (Java But Better, F*ck It)
 
 ## Known Errors/Bugs
- - parsecommands ignoring changes to i made in "if" section
  - addition of color broke editor output
  
 ## Changes to make
@@ -67,22 +66,33 @@ set var1 3
 set var2 4
 
 if var1 == var2
-// Output will be false
+... commands to run
+endif
 
 if var1 != var2
-// Output will be True
+... commands to run
+endif
+
 
 if var1 >= var2
-// Output will be false
+... commands to run
+endif
+
 
 if var1 <= var2
-// Output will be true
+... commands to run
+endif
+
 
 if var1 > var2
-// Output will be false
+... commands to run
+endif
+
 
 if var1 < var2
-// Output will be true
+... commands to run
+endif
+
 ```
 
 ### *Look at the wiki for better examples and documentation
