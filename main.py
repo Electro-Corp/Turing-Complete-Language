@@ -2,7 +2,7 @@ from pickletools import uint4
 import sys  # for command line arguments
 import random
 
-filename = sys.argev[1]
+filename = sys.argv[1]
 # if commands
 def parsecommands(commands):
     i = 0
