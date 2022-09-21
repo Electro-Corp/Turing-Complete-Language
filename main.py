@@ -1,14 +1,17 @@
+from pickletools import uint4
 import sys  # for command line arguments
 import random
 
-filename = sys.argv[1]
-
+filename = sys.argev[1]
 # if commands
 def parsecommands(commands):
     i = 0
     for i in range(len(commands)):
-        if("define" in commands[i]):
-            print("Define")
+        command = commands[i].split(' ')
+        syntax = command[0]
+        val1 = command[1]
+        val2 = command[2]
+
 try:
     with open(str(filename), 'r') as d:
         lines = d.readlines()
