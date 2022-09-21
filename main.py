@@ -31,6 +31,12 @@ def dumpmemory():
         w.writelines(str(varvalue))
         w.write("\n[VARPOS]\n")
         w.write(str(varpos))
+        w.write("\n[COMMANDS]\n")
+        w.write(str(lines))
+        w.write("\n[COMMANDS LENGTH]\n")
+        w.write(str(len(lines)))
+        w.write("\n[MEMORY]\n")
+        w.write(str(memory))
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -63,8 +69,7 @@ def parsecommands(commands):
         print(bcolors.ENDC)
         print()
         print()
-    i = 0
-    while i < (len(commands)):
+    for i in range(len(commands)):
 
         if (DEBUG):
             print(f'{bcolors.WHITE}')
@@ -73,11 +78,7 @@ def parsecommands(commands):
             print(f'{bcolors.OKGREEN} {commands[i]}', end=f'{bcolors.WHITE} command outputed: {bcolors.OKBLUE}')
         if (commands[i] == 0):
             print("Weird error occuring..")
-            #exit()
-        if(i in ifstatments):
-            pass
-            #print("Skipped.")
-        elif ("inc" in commands[i]):
+        if ("inc" in commands[i]):
             memory[pos] += 1
         elif ("dec" in commands[i]):
             memory[pos] -= 1
@@ -237,7 +238,6 @@ def parsecommands(commands):
         else:
             if (commands[i].strip("\n") == function1name):
                 parsecommands(function1commands)
-        i += 1
 
 try:
     with open(str(filename), 'r') as d:
@@ -253,5 +253,7 @@ try:
 except Exception as exc:
    print(f'Error: {bcolors.ERROR}{exc}', end = f'{bcolors.WHITE}\n')
    dumpmemory()
+   print(bcolors.ENDC)
 
-print(bcolors.WHITE)
+
+print(bcolors.ENDC)
