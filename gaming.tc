@@ -1,12 +1,10 @@
 define x
 define y
-set x 4
+set x 3
 set y 4
 if x == y
 print this should never run
 endif
-print Hey
-
 if x != y
 print if you see this it is good
 endif
