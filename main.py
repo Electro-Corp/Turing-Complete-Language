@@ -4,9 +4,9 @@ import random
 
 try:
     filename = sys.argv[1]
-    print("No file argument passed, running default file instead")
 except:
     filename = 'deftest.tc'
+    print("No file argument passed, running default file instead")
 VARLEN = 2
 FUNCLEN = 2
 CLASSLEN = 2
