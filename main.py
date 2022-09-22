@@ -1,7 +1,6 @@
 from pickletools import uint4
 import sys  # for command line arguments
 import random
-from types import NoneType
 
 try:
     filename = sys.argv[1]
@@ -9,7 +8,8 @@ try:
 except:
     filename = 'deftest.tc'
 VARLEN = 2400
-vars = [NoneType]*VARLEN[NoneType]*VARLEN
+vars = [[None]*VARLEN]*VARLEN
+
 
 
 
