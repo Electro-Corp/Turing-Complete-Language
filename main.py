@@ -12,7 +12,7 @@ FUNCLEN = 2
 CLASSLEN = 2
 
 # [loc]
-varnames = [[""]*VARLEN]*VARLEN
+varnames = [[None]*VARLEN]*VARLEN
 vars = [0]*VARLEN
 
 funcs = [[0]*VARLEN]*VARLEN
@@ -29,6 +29,7 @@ print(varnames)
 # if commands
 v = 0
 def parsecommands(commands):
+    global v
     i = 0
     for i in range(len(commands)):
         command = commands[i].split(' ')
@@ -39,7 +40,7 @@ def parsecommands(commands):
             v+=1
             varnames[v] = arguments[0]
             if(arguments[1] == '='):
-                varnames[v][0] = arguments[2]
+                varnames.insert([v][0], arguments[2])
             vars[v] = 1
             print('var found')
 try:
