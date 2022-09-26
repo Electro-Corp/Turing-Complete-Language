@@ -25,6 +25,16 @@ varnames[0][1] = "Works"
 varnames[1] = "I think"
 
 print(varnames)
+def dumpmemory():
+    with open("dump.log", "w") as w:
+        w.write("[VARNAME]\n")
+        w.writelines(str(varnames))
+        w.write("\n[VARS]\n")
+        w.writelines(str(vars))
+        w.write("\n[funcs]\n")
+        w.write(str(funcs))
+        w.write("\n[funcnames]\n")
+        w.write(str((funcnames)))
 
 # if commands
 v = 0
@@ -54,5 +64,6 @@ for e in range(len(lines)):
     lines[e] = lines[e].strip("\n")
 #try:
 parsecommands(lines)
+dumpmemory()
 #except Exception as exc:
 #   print("error lol")
